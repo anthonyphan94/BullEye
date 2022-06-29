@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var isAlertVisible : Bool = false
-    @State private var sliderChange: Double = 10.0
+    @State private var sliderValue: Double = 50.0
     
     
     var body: some View {
@@ -23,7 +23,7 @@ struct ContentView: View {
                 .lineSpacing(1.0)
                 .font(.headline)
 
-            
+        
             Text("89")
                 .bold()
                 .kerning(-1)
@@ -36,7 +36,7 @@ struct ContentView: View {
                     .kerning(1)
                     .padding(20)
                     .multilineTextAlignment(.center)
-                Slider(value: $sliderChange, in:1.0...100.0)
+                Slider(value: $sliderValue, in:1.0...100.0)
                 Text("100")
                     .fontWeight(.bold)
                     .font(.headline)
@@ -50,10 +50,11 @@ struct ContentView: View {
             }) {
             Text("Hit Me")
             }
-            .alert(Text("This is a popup"), isPresented: $isAlertVisible, actions: {
+            .alert(Text("The Slider Value is"), isPresented: $isAlertVisible, actions: {
                 Button("Cancel", role: .cancel, action: {} )
             }, message: {
-                Text("Hellooo")
+                let intValue: Int = Int(self.sliderValue.rounded())
+                Text("\(intValue)")
             })
             
             
