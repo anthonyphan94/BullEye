@@ -10,7 +10,8 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var isAlertVisible : Bool = false
-    @State private var sliderChange: Double = 50.0
+    @State private var sliderChange: Double = 10.0
+    
     
     var body: some View {
         VStack {
